@@ -7,10 +7,11 @@ def execute_command(command, description):
     sys.stdout.flush()  # update message
     execution = Popen(command, shell=True, stdout=PIPE, stderr=PIPE)  # ecxcute command and print ouput
     output, error = execution.communicate()
-    if len(output.decode('utf-8')) >= 1 :
+    if len(output.decode('utf-8')) >= 1:
         print(output.decode('utf-8'))
     if execution.returncode:  # return true or false
-        print ('/n') + error.decode("utf-8") #decode translate to utf-8
+        print ('/n')
+        print(error.decode("utf-8")) #decode translate to utf-8
         sys.stdout.flush()
         print('not Done')
         exit(1)
